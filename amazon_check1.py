@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import smtplib
 import os
 
+
 GMAIL_EMAIL = "pythonwithjamess@gmail.com"
 GM_PW = os.environ.get("GM_PW")
 INBOX = "jamieslinger@gmail.com"
@@ -34,7 +35,6 @@ headers = {
 
 product_data = requests.get(url=PRODUCT_URL, headers=headers)
 data = product_data.text
-
 bs = BeautifulSoup(data, "lxml")
 price_data = bs.find(name="span", id="sns-base-price")
 item_price = str(price_data.contents[0])
